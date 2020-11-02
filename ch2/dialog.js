@@ -1,6 +1,6 @@
 import { Point } from './point.js';
 
-const FLOOR_SPEED = 0.08;
+const FOLLOW_SPEED = 0.08;
 const ROTATE_SPEED = 0.12;
 const SPEED_REDUCE = 0.8;
 const MAX_ANGLE = 30;
@@ -25,16 +25,18 @@ export class Dialog {
     }
 
 
-    resize(stageWidth , stageWidth) {
+    resize(stageWidth , stageHeight) {
         this.pos.x = Math.random() * (stageWidth - WIDTH);
-        this.pox.y = Math.random() * (stageHeight - HEIGHT);
+        this.pos.y = Math.random() * (stageHeight - HEIGHT);
         this.target = this.pos.clone();
-        this.prevPos = this.pox.clone();
+        this.prevPos = this.pos.clone();
     }
 
     animate(ctx) {
-        const move = this.target.clone().subtract(this.pos).reduce(FOLLOW_SPEED)
+        const move = this.target.clone().subtract(this.pos).reduce(FOLLOW_SPEED);
         this.pos.add(move);
+
+        this.centerPos = this.pos.clone().add(this.mousePos);
 
 
         ctx.beginPath();
@@ -45,7 +47,7 @@ export class Dialog {
     down(point) {
         if (point.collide(this.pos, WIDTH, HEIGHT)) {
             this.isDown = true;
-            this.startPos = this.pox.clone();
+            this.startPos = this.pos.clone();
             this.downPos = point.clone();
             this.mousePos = point.clone().subtract(this.pos);
             return this;

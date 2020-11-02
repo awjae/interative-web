@@ -4,9 +4,15 @@ export class Point {
         this.y = y || 0;
     }
 
-    app(point) {
+    add(point) {
         this.x += point.x;
         this.y += point.y;
+        return this;
+    }
+
+    subtract(point) {
+        this.x -= point.x;
+        this.y -= point.y;
         return this;
     }
 

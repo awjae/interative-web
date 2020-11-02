@@ -43,7 +43,7 @@ class App {
 
         this.lineWidth = 2;
         for (let i = 0; i < this.items.length; i++) {
-            this.items[i].resize(this.stageWidth, this.stageHright);
+            this.items[i].resize(this.stageWidth, this.stageHeight);
         }
     }
  
@@ -65,7 +65,7 @@ class App {
             if(item) {
                 this.curItem = item;
                 const index = this.items.indexOf(item);
-                this.items.push(this.splice(index, 1)[0]);
+                this.items.push(this.items.splice(index, 1)[0]);
                 break;
             }
         }
@@ -74,11 +74,19 @@ class App {
     onMove(e) {
         this.mousePos.x = e.clientX;
         this.mousePos.y = e.clientY;
+
+        for (let i = 0; i < this.items.length; i++) {
+            this.items[i].move(this.mousePos.clone());
+        }
     }
 
-    onUp(e) {}
-    
+    onUp(e) {
+        this.curItem = null;
+        for (let i = 0; i < this.items.length; i++) {
+            this.items[i].up();
+        }
     }
+}
 
 
 window.onload = () => {
