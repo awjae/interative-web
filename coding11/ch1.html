@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            background-color: black;
+        }
+        h1 {
+            color: #fff;
+        }
+        .cursor_item {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color : red;
+            top: 0;
+            left: 0;
+            margin:  -50px 0px 0px -50px;
+            transition: all 1000ms cubic-bezier(0.885, -0.015, 0.120, 1.045); /*가속도 https://matthewlein.com/tools/ceaser*/
+        }
+        button {
+            font-size: 40px;
+            font-weight: bold;
+            background: #fff;
+            color: red;
+            padding: 30px 80px;
+            cursor: pointer;
+            transition: all .5s;
+        }
+        button:hover {
+            background: red;
+            color: #fff;
+            padding : 100px 150px;
+            font-size: 50px;
+        }
+    </style>
+    <script>
+        let x= 0;
+        let y= 0;
+        let mx= 0;
+        let my= 0;
+        let speed= 0.03
+        let cursor_item;
+        window.onload = function () {
+            let h1 = document.getElementsByTagName("h1")[0];
+            cursor_item = document.getElementsByClassName("cursor_item")[0];
+            window.addEventListener("click", mouseFunc, false);
+        
+            function mouseFunc(e) {
+                x = e.clientX;
+                y = e.clientY;
+                h1.innerText = 'x: ' + x + ' y: ' + y;
+                cursor_item.style.transform = `translate(${x}px, ${y}px)`;
+            }
+            //loop();
+        }
+        // function loop() {
+
+        //     mx += (x - mx) * speed;
+        //     my += (y - my) * speed;
+
+        //     cursor_item.style.transform = `translate(${mx}px, ${my}px)`;
+        //     window.requestAnimationFrame(loop);
+        // }
+        
+    </script>
+</head>
+<body>
+    <h1>test</h1>
+    <div class="cursor_item"></div>
+    <button>Start</button>
+</body>
+</html>
