@@ -18,7 +18,6 @@ body {
 
 header {
     width: 100%;
-    background: red;
     padding: 0 40px;
     box-sizing: border-box; 
     height: 100px;
@@ -27,26 +26,9 @@ header {
     z-index: 100;
     position: fixed;
     top: 0;
-    transition: all 0.5s;
 }
-header .menuOpen {
-    display: inline-block; 
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 16px;
-    line-height: 100px;
-    background: blue;
-}
-header .menuOpen span {
-    display: block;
-    width: 100%;
-    height: 1px;
-    background: #fff;
-    position: absolute;
-    
-}
+header .menuOpen { display: inline-block; position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 16px; line-height: 100px; }
+header .menuOpen span { display: block; width: 100%; height: 1px; background: #fff; position: absolute; }
 header .menuOpen span.mid { top: 50% }
 header .menuOpen span.bot { top: 100% }
 header .book { display: inline-block; float: left; margin-left: 70px; height: 100%; font-size: 25px; }
@@ -63,3 +45,92 @@ header .right li .logo { width: 150px; height: 100px; }
 header .right li .logo a { display: block; width: 100%; height: 100%; position: relative; }
 header .right li .logo a img { position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 100%; }
 header .right li .logo a img:nth-child(2) { opacity: 0; }
+header a:visited { text-decoration: none; color: #fff; }
+
+/* visual */
+.visual { color:#fff }
+.visual .slide li { position: relative; width: 100%; height: 100vh; }
+.visual .slide li img { position: absolute; right: 0; top: 0; width: 100%; }
+/* visual.mainText */
+.visual .slide .mainText { position: absolute; top:35%; right: 18%; width: 25%; }
+.visual .slide .mainText strong { display: block; font-size: 50px; margin-bottom: 30px; font-weight: 500; letter-spacing: 2px; }
+.visual .slide .mainText > p { font-size: 20px; font-weight: normal; line-height: 1.8; margin-bottom: 70px; }
+.visual .slide .mainText .num { position: relative; font-size: 30px; font-weight: bold; margin-bottom: 30px; }
+.visual .slide .mainText .num span { position: absolute; top: -10px; display: inline-block; padding: 10px 4px; opacity: 0; }
+.visual .slide .mainText .message { font-size: 26px; line-height: 1.2; }
+
+/* .visual 공통 meni */
+.visual .menu { position: absolute; left: 4%; bottom: 7%; font-size: 21px; padding-bottom: 10px; overflow: hidden; }
+.visual .menu:after { content: ''; width: 100%; height: 4px; background: #fff; position: absolute; left: 0; bottom: 0; animation: bar 4.5s infinite; }
+@keyframes bar {
+    0%{ width: 0%; }
+}
+.visual .menu li { float: left; padding-right: 20px; }
+.visual .menu li:nth-child(2) { padding-right: 130px; }
+.visual .menu li:nth-child(3) { padding-right: 0; }
+.visual .menu li span i { display: inline-block; margin-right: 10px; font-size: 18px; }
+.visual .menu li span i:nth-child(2) { margin-right: 22px; }
+.visual .menu li p { font-size: 28px; }
+.visual .menu a:visited { text-decoration: none; color: #fff; }
+
+/* animation */
+@keyframes trans {
+    0% { opacity: 0; transform: translateY(15px); }
+    30% { opacity: 1; transform: translateY(0); }
+    70% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-15px); }
+}
+.visual .slide .slick-active .mainText .num span { animation-name: trans; animation-duration: 4.5s; }
+
+@keyframes opa {
+    0% { opacity: 0; }
+}
+.visual .slide .slick-active .mainText strong { animation-name: opa; animation-duration: 3s; }
+
+@keyframes slide-up {
+    0% { opacity: 0; }
+    20% { opacity: 0; transform: translateY(10px); }
+}
+.visual .slide .slick-active .mainText > p { animation-name: slide-up; animation-duration: 1.5s; }
+
+@keyframes scaleani {
+    0% { transform: scale(1.1) }
+}
+.visual .slide li.slick-active img { animation-name: scaleani; animation-duration: 9.5s; }
+
+/* section.introduce */
+.introduce { width: 88%; margin: 130px auto 0; }
+.introduce .title { font-size: 32px; line-height: 1.6; margin-bottom: 100px; }
+.introduce .roomInfo { width: 100%; height: 884px; position: relative; }
+.introduce .roomInfo .tab { width: 380px; text-transform: uppercase; margin-bottom: 40px; overflow: hidden; }
+.introduce .roomInfo .tab li { float: left; width: 40%; margin-right: 3%; }
+.introduce .roomInfo .tab li:nth-child(2) { margin-right: 0; }
+.introduce .roomInfo .tab li a { display: block; width: 100%; height: 100%; font-size: 16px; }
+.introduce .roomInfo .tab li.on { color: #a68164 }
+
+/* 글자만큼 바 span */
+.introduce .roomInfo .tab li a span { display: inline-block; position: relative; padding: 5px 0; box-sizing: border-box; }
+.introduce .roomInfo .tab li a span:after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 1px; background: #a68164; transition: all 0.5s; }
+.introduce .roomInfo .tab li a span:hover:after { width: 100%; }
+
+/* .introduce tabBox */
+.introduce .roomInfo .tabBox { width: 100%; position: absolute; left: 0; top: 11%; display: none; }
+.introduce .roomInfo .tabBox.on { display: block; }
+.introduce .roomInfo .tabBox .place { overflow: hidden; width: 100%; }
+.introduce .roomInfo .tabBox .place .photo { float: left; width: 60%; position: relative ;}
+.introduce .roomInfo .tabBox .place .photo img { width: 100%; }
+.introduce .roomInfo .tabBox .place .photo .showBox { width: 25%; position: absolute; left: 8%; bottom: 18%; color: #fff; letter-spacing: 1.5px; }
+.introduce .roomInfo .tabBox .place .photo .showBox .name {  padding-bottom: 15px; box-sizing: border-box; border-bottom: 1px solid rgba(235,235,235,0.33); margin-bottom: 10px; position: relative; }
+.introduce .roomInfo .tabBox .place .photo .showBox .name:after { content: ''; width: 100%;height: 1px; background: #ffffff; position: absolute; left: 0; bottom: 0; animation: bar 4.4s; }
+.introduce .roomInfo .tabBox .place .photo .showBox .btn { letter-spacing: 1px; margin-bottom: 10px; }
+
+.introduce .roomInfo .tabBox .place .txtinfo { float: right; width: 40%; text-align: center; margin-top: 180px; }
+.introduce .roomInfo .tabBox .place .txtinfo .titBox { margin-bottom: 120px; } 
+.introduce .roomInfo .tabBox .place .txtinfo .titBox h3 { font-size: 35px; font-weight: normal; letter-spacing: 1px; margin-bottom: 30px; }
+.introduce .roomInfo .tabBox .place .txtinfo .titBox p { font-size: 17px; color: #604d3e; } 
+.introduce .roomInfo .tabBox .place .txtinfo .inner_detail li { margin-bottom: 50px; }
+.introduce .roomInfo .tabBox .place .txtinfo .inner_detail li span { display: block; margin-bottom: 20px; color: #a68164; }
+.introduce .roomInfo .tabBox .place .txtinfo .inner_detail li p { font-size: 17px; }
+
+.introduce a:visited { text-decoration: none; color: #a68164; }
+
