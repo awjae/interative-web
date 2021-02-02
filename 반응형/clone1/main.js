@@ -24,6 +24,12 @@ window.onload = () => {
         $('.introduce .roomInfo .tabBox.on').removeClass('on');
         $('.introduce .roomInfo .tabBox:eq('+ num +')').addClass('on');
     });
-})()
+})();
 
-
+//scroll
+(() => {
+    $('.animate').scrolla({
+        mobile: true,
+        once: false
+    });
+})();

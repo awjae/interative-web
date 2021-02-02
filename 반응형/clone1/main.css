@@ -134,3 +134,9 @@ header a:visited { text-decoration: none; color: #fff; }
 
 .introduce a:visited { text-decoration: none; color: #a68164; }
 
+/* introduce . motion */
+@keyframes slide-up2 {
+    0% { opacity: 0; }
+    20% { opacity: 0; transform: translateY(40px); }
+}
+.introduce .title.motion { animation-name: slide-up2; animation-duration: 1.5s; }
