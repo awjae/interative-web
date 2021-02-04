@@ -199,3 +199,25 @@ header a:visited { text-decoration: none; color: #fff; }
 .greetings h2 {font-size: 17px; font-weight: normal; color:#a68164; margin-bottom: 60px; }
 .greetings h3 {font-size: 32px; line-height: 1.6; font-weight: 500; margin-bottom: 50px; }
 .greetings a {display: block; width: 150px; margin:auto; text-align:center; border: 1px solid #a68164; padding: 12px 20px;}
+
+/*section.news_notice*/
+.news_notice {width: 100%;  border-top: 1px solid #d3cdb7; overflow: hidden;}
+.news_notice .title_wrap {width: 7%; height: 395px; float: left; border-right: 1px solid #e3dbd7; box-sizing: border-box; position: relative;}
+.news_notice .title_wrap .inner {font-size: 20px; text-align: center;position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%);}
+.news_notice .title_wrap .inner .news_title {transform: rotate(-90deg); width: 200px;}
+.news_notice .title_wrap .inner .news_title a {display: block; color:#604d3e; font-size: 16px;}
+.news_notice .notice_list {width: 90%; float:left; padding-top: 98px; overflow: hidden; }
+.news_notice .notice_list li {float: left; width: 33.3333%;padding-right: 50px; box-sizing: border-box;}
+.news_notice .notice_list li .data {display: block; text-align: right; font-size: 38px; }
+.news_notice .notice_list li .textBox {width: 80%; float: right;}
+.news_notice .notice_list li .textBox strong {display: block; font-size: 20px; font-weight: 500; color:#1d212a; margin-bottom: 50px;}
+.news_notice .notice_list li .textBox .list_txt {font-size: 14px; color: #604d3e; height: 115px;}
+.news_notice .notice_list li .textBox a.more {display: block; width: 80px; font-size: 15px;  padding: 5px 0; position: relative; margin-bottom: 50px; color:#a68164;}
+.news_notice .notice_list li .textBox a.more:after{content: ''; width: 0;height: 1px; background: #a68164; position: absolute; left: 0; bottom: 0; transition: all 0.5s;}
+.news_notice .notice_list li .textBox a.more:hover:after {width: 100%;}
+
+/*motion*/
+.news_notice .notice_list.motion li {animation-name: slide-up2; animation-duration: 0.8s;}
+.news_notice .notice_list.motion li:nth-child(2){animation-duration: 1s;}
+.news_notice .notice_list.motion li:nth-child(3){animation-duration: 1.2s;}
+.news_notice .notice_list.motion li:nth-child(4){animation-duration: 1.4s;}
