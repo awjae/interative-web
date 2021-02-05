@@ -221,3 +221,16 @@ header a:visited { text-decoration: none; color: #fff; }
 .news_notice .notice_list.motion li:nth-child(2){animation-duration: 1s;}
 .news_notice .notice_list.motion li:nth-child(3){animation-duration: 1.2s;}
 .news_notice .notice_list.motion li:nth-child(4){animation-duration: 1.4s;}
+
+
+/*section.club_banner*/
+.club_banner {width: 100%; background: url(./images/club.jpg)no-repeat center/cover;}
+.club_banner .inner {width: 78%; margin:auto; padding: 200px 0; text-align: center; color: #fff;}
+.club_banner .inner h3 {font-size: 38px; font-weight: normal; margin-bottom: 50px;}
+.club_banner .inner a.more {display: block; width: 80px;margin: auto;  padding: 5px 0; font-size: 15px; position: relative;}
+.club_banner .inner a.more:after {content: ''; width: 0; height: 1px;background: #a68164;position: absolute;left: 0; bottom: 0; transition: all 0.5s;}
+.club_banner .inner a.more:hover:after{width: 100%;}
+
+/*motion*/
+.club_banner .inner.motion h3 {animation-name: slide-up2; animation-duration: 0.8s;}
+.club_banner .inner.motion a.more {animation-name: slide-up2; animation-duration: 1s;}
