@@ -234,3 +234,33 @@ header a:visited { text-decoration: none; color: #fff; }
 /*motion*/
 .club_banner .inner.motion h3 {animation-name: slide-up2; animation-duration: 0.8s;}
 .club_banner .inner.motion a.more {animation-name: slide-up2; animation-duration: 1s;}
+
+/*footer*/
+footer{width: 100%; background: #161e27;}
+footer .foot_inner {width: 87%;  margin:auto; padding: 80px 0; color:#fff; overflow: hidden; position: relative;}
+footer .foot_inner .logo {float: left; width: 16%;}
+footer .foot_inner .contact_area {float: left; width: 68%; }
+footer .foot_inner .contact_area li {float:left; width: 18%;}
+footer .foot_inner .contact_area li:nth-child(1) {width: 34%; }
+footer .foot_inner .contact_area li:nth-child(3) {width: 24%; }
+footer .foot_inner .contact_area li p {margin-bottom: 5px;}
+footer .foot_inner .contact_area li p a{font-size: 14px;}
+footer .foot_inner .contact_area li p.adrress {font-size: 18px;}
+footer .foot_inner .contact_area li p span {display: inline-block; margin-right: 10px;}
+footer .foot_inner .contact_area li p.mail, footer .foot_inner .contact_area li p.tel {letter-spacing: 1px;}
+footer .foot_inner .footer_right {float: right; width: 16%; }
+footer .foot_inner .footer_right .icon li{float: right; padding-left: 40px;box-sizing: border-box;}
+footer .foot_inner .footer_right .icon li:nth-child(3){padding-left: 0;}
+footer .foot_inner .footer_right .icon li:nth-child(3) img {width: 70%;}
+footer .foot_inner .footer_right .icon li a {font-size: 20px;}
+footer .foot_inner .footer_right .fam_site_wrap {width: 170px; position: absolute;right: 0;bottom: 30px;font-size: 13px;}
+footer .foot_inner .footer_right .fam_site_wrap .txt_wrap {width: 100%;height: 33px; margin-bottom: 10px;}
+footer .foot_inner .footer_right .fam_site_wrap .txt_wrap .btn_fam {display: block; width: 100%; padding: 5px 15px 5px 20px; box-sizing: border-box; text-align: left; background: #161e27; color:#fff; border: 1px solid rgba(255,255,255,0.1);border-radius: 3px; cursor: pointer;margin-bottom: 20px;}
+footer .foot_inner .footer_right .fam_site_wrap .txt_wrap .btn_fam .fma_sit_tit{margin-right: 55px;}
+
+
+
+footer .foot_inner .footer_right .fam_site_wrap .item_wrap {display: none; width: 100%; height: 156px;padding: 18px 20px 16px;box-sizing: border-box; position: absolute; left: 0; bottom: 58px;background: #fff;  overflow: scroll;}
+footer .foot_inner .footer_right .fam_site_wrap .item_wrap a {display: block; width: 100%;  padding: 6px;box-sizing: border-box; transition: 0.4s color ease;  color: #1d212a;}
+footer .foot_inner .footer_right .fam_site_wrap .copy {font-size: 11px;color: #888; }
+
