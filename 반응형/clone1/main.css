@@ -15,6 +15,42 @@ body {
 }
 .en { font-family: 'Unna', serif; }
 .en_1 { font-family: 'Maven Pro', sans-serif; }
+.menuWrap span {display: block;}
+.menuWrap span b {font-weight: normal;}
+
+/*menuOpen*/
+.menuWrap {width: 100%; height: 100vh; position: fixed; top:0; left: 0; z-index: 100; background: #eee; color: #000; padding: 160px 200px 0 450px; box-sizing: border-box; overflow: hidden;}
+.menuWrap .close {display: inline-block; position: absolute; top:5px; left: 40px; font-size: 16px;}
+.menuWrap .close img {margin-right: 25px;}
+
+/*.menuWrap .menuWrap_left*/
+.menuWrap .menuWrap_left {float: left; width: 50%; }
+.menuWrap .menuWrap_left .tit {margin-bottom: 50px; letter-spacing: 2px; font-weight: normal;}
+.menuWrap .menuWrap_left li a {font-size: 44px; line-height: 1.5;}
+.menuWrap .menuWrap_right {float: left; width: 50%;}
+.menuWrap .menuWrap_right .fam_site {font-size: 18px; line-height: 1.7; margin-bottom:100px;}
+.menuWrap .menuWrap_right .fam_site li:nth-child(1) {font-size: 15px; margin-bottom: 23px;}
+.menuWrap .menuWrap_right .follow p {font-size: 15px;line-height: 1;}
+.menuWrap .menuWrap_right .follow a {display: inline-block;margin-right: 25px; font-size: 24px;}
+
+/*text animation*/
+.menuWrap.on span {overflow: hidden;}
+.menuWrap.on span b{overflow: hidden; display: block; animation-name: textAni; animation-duration: 1.4s;}
+@keyframes textAni {
+    0% {opacity: 0;}
+    40% {opacity: 0; transform: translateY(100px);}
+}
+
+/*메인메뉴만 타이밍 조절*/
+
+.menuWrap.on .tit li:nth-child(2) span b {animation-duration: 1.5s;}
+.menuWrap.on .tit li:nth-child(3) span b {animation-duration: 1.6s;}
+.menuWrap.on .tit li:nth-child(4) span b {animation-duration: 1.7s;}
+.menuWrap.on .tit li:nth-child(5) span b {animation-duration: 1.8s;}
+.menuWrap.on .tit li:nth-child(6) span b {animation-duration: 1.9s;}
+
+.menuWrap {width: 0; transition: 0s; overflow: hidden; opacity: 0; padding: 0;}
+.menuWrap.on {width: 100%; left: 0; transition: 0.5s; opacity: 1; padding: 160px 200px 0 450px; }
 
 header {
     width: 100%;
@@ -27,6 +63,7 @@ header {
     position: fixed;
     top: 0;
 }
+header.on {background: rgba(96,77,62,0.3);}
 header .menuOpen { display: inline-block; position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 16px; line-height: 100px; }
 header .menuOpen span { display: block; width: 100%; height: 1px; background: #fff; position: absolute; }
 header .menuOpen span.mid { top: 50% }

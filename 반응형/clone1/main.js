@@ -43,3 +43,35 @@ window.onload = () => {
         once: false
     });
 })();
+
+
+//패밀리 사이트
+$(function(){
+    $('.txt_wrap .btn_fam ').on('click', function(){
+        $('.fam_site_wrap .item_wrap').slideToggle();
+    });
+});
+
+//햄버거버튼
+$(function(){
+    $('header .menuOpen').on('click', function(){
+        $('header .menuWrap').addClass('on');
+    });
+    $('.menuWrap .close').on('click', function(){
+        $('.menuWrap').removeClass('on');
+    });
+});
+
+//헤더 이벤트
+var scrollTop = 0;
+scrollTop = $(document).scrollTop();
+
+$(window).on('scroll resize', function(){
+    scrollTop = $(document).scrollTop();
+    fixHeader();
+});
+
+function fixHeader(){
+    if( scrollTop > 200) { $('header').addClass('on'); }
+    else{ $('header').removeClass('on'); }
+} 
