@@ -11,12 +11,6 @@ header h1 {
     margin: 9px 31px 11px 10%;
     font-family: TTNorms;
     font-size: 34px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: left;
     color: #474747;
 }
 
@@ -26,11 +20,25 @@ header h4 {
     margin: 2% 31px 0 10%;
     font-family: Gilroy-☞;
     font-size: 14px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
     letter-spacing: 2.52px;
-    text-align: left;
     color: #686868;
+}
+.category {
+    margin: 0 5%;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.category figure{
+    margin: 16px 8px;
+}
+.category img {
+    width: 109px;
+    height: 72px;
+    margin: 0 0 7px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px 0 rgba(57, 120, 122, 0.47);
+}
+.category figcaption {
+    color: #979ea6;
 }
