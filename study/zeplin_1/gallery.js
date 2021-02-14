@@ -17,6 +17,7 @@ const THUBNAIL_LIST = [
 gallery.init = (rootEl) => {
     gallery.setHeader(rootEl);
     gallery.setThumbnail(rootEl);
+    gallery.setImages(rootEl);
 }
 
 gallery.setHeader = (rootEl) => {
@@ -39,5 +40,13 @@ gallery.setThumbnail = (rootEl) => {
 
 }
 
+gallery.setImages = (rootEl) => {
+
+    const categoryEl = document.createElement('section');
+    categoryEl.className = 'grid-stack images-wrapper';
+    rootEl.insertAdjacentElement('beforeend', categoryEl);
+    gallery.grid = GridStack.init();
+
+}
 
 export default gallery;
