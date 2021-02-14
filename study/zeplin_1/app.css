@@ -1,8 +1,14 @@
-@media (max-width: 480px) {
-    .grid-stack-item[gs-w="2"]  { width: 50% }
-    .grid-stack-item[gs-w="1"]  { width: 50% }
-    
+@media screen and (max-width: 480px) {
+    .grid-stack-item[gs-w="2"]  { width: 50% !important; min-width: 50% !important;}
+    .grid-stack-item[gs-w="1"]  { width: 50% !important; min-width: 50% !important;}
+
     .grid-stack-item[gs-x="1"]  { left: 50% }
+}
+.grid-stack-item-content {
+    overflow: hidden !important;
+    
+    border-radius: 16px;
+    box-shadow: 0 10px 15px 0 rgba(49, 87, 91, 0.38);
 }
 
 
@@ -49,4 +55,22 @@ header h4 {
 }
 .category figcaption {
     color: #979ea6;
+}
+.images-wrapper figure {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.images-wrapper {
+    margin: 0 5%;
+}
+.images-wrapper a {
+    width: 100%;
+    position: relative;
+    display: block;
+}
+
+.images-wrapper img {
+    width: 100%;
 }
