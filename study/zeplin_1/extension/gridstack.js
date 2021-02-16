@@ -1,4 +1,5 @@
-/*! For license information please see gridstack-h5.js.LICENSE.txt */ ! function (t, e) {
+/*! For license information please see gridstack-h5.js.LICENSE.txt */
+! function (t, e) {
     "object" == typeof exports && "object" == typeof module ? module.exports = e() : "function" == typeof define && define.amd ? define([], e) : "object" == typeof exports ? exports.GridStack = e() : t.GridStack = e()
 }(self, (function () {
     return (() => {

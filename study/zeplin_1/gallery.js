@@ -58,19 +58,27 @@ gallery.setImages = (rootEl) => {
     const categoryEl = document.createElement('section');
     categoryEl.className = 'grid-stack images-wrapper';
     rootEl.insertAdjacentElement('beforeend', categoryEl);
-    gallery.grid = GridStack.init({column: 12});
+    gallery.grid = GridStack.init({
+        column: 12,
+        cellHeight: 'auto',
+        cellHeightThrottle: 100
+    });
     for (let i = 0; i < 10; i++) {
         const contents = `<figure><a href='#'><img src='${IMAGE_LIST[i].path}' alt='${IMAGE_LIST[i].title}'/></a></figure>`;
         const img = new Image();
         img.src = IMAGE_LIST[i].path;
-        const ratio = img.width/img.height;
-        if (ratio >= 1.5) {
-            gallery.grid.addWidget({w: 6, h:3, content: contents, noMove: false, noResize: true, locked: false });
-        } else if (ratio <= 0.5) {
-            gallery.grid.addWidget({w: 3, h:6, content: contents, noMove: false, noResize: true, locked: false });
-        } else {
-            gallery.grid.addWidget({w: 4, h:4, content: contents, noMove: false, noResize: true, locked: false });
+        img.onload = () => {
+            const ratio = img.width/img.height;
+            if (ratio >= 1.5) {
+                gallery.grid.addWidget({w: 6, h:3, content: contents, noMove: false, noResize: true, locked: false });
+            } else if (ratio <= 0.5) {
+                gallery.grid.addWidget({w: 3, h:6, content: contents, noMove: false, noResize: true, locked: false });
+            } else {
+                gallery.grid.addWidget({w: 4, h:4, content: contents, noMove: false, noResize: true, locked: false });
+            }
         }
+
+        
 
         // const contents = document.createElement('figure');
         // const image = document.createElement('img');

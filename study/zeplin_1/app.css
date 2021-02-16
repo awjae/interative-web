@@ -1,8 +1,11 @@
-@media screen and (max-width: 480px) {
-    .grid-stack-item[gs-w="2"]  { width: 50% !important; min-width: 50% !important;}
-    .grid-stack-item[gs-w="1"]  { width: 50% !important; min-width: 50% !important;}
+@media screen and (max-width: 880px) {
+    .grid-stack.grid-stack-1> .grid-stack-item[gs-w="2"]  { width: 50%; min-width: 50%;}
+    .grid-stack.grid-stack-1> .grid-stack-item[gs-w="1"]  { width: 50%; min-width: 50%;}
 
-    .grid-stack-item[gs-x="1"]  { left: 50% }
+    .grid-stack.grid-stack-1> .grid-stack-item[gs-x="1"]  { left: 50% }
+
+    .grid-stack.grid-stack-1> .grid-stack-item[gs-h="1"] { height: 363px; min-height: 363px; }
+    
 }
 .grid-stack-item-content {
     overflow: hidden !important;
