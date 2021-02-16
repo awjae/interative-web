@@ -62,3 +62,21 @@ header h4 {
     border-radius: 16px;
     box-shadow: 0 10px 15px 0 rgba(49, 87, 91, 0.38);
 }
+
+.bottomNav {
+    width: 60%;
+    min-width: 375px;
+    height: 8vw;
+    min-height: 91px;
+    border-radius: 40px 40px 0px 0px;
+    background-color: #ffffff;
+    box-shadow: -2px -2px 5px 0 rgba(49, 87, 91, 0.38);
+}
+
+.bottomNav-wrapper {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+}
