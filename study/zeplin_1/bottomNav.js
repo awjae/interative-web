@@ -24,19 +24,29 @@ const NAV = [
 ]
 
 bottomNav.init = (rootEl) => {
-    const bottomNavWrapper = '<section class="bottomNav-wrapper"><nav class="bottomNav"></nav></section>'
+    let bottomNavWrapper = '<section class="bottomNav-wrapper"><nav class="bottomNav"></nav></section>'
     rootEl.insertAdjacentHTML('beforeend', bottomNavWrapper);
-    bottomNav.setNav(rootEl);
+    bottomNavWrapper = rootEl.querySelector('.bottomNav');
+    bottomNav.setNav(bottomNavWrapper);
+    bottomNav.setRect(bottomNavWrapper);
 }
 
-bottomNav.setNav = (rootEl) => {
+bottomNav.setNav = (wrapperEl) => {
     const bottomNavUl = document.createElement('ul');
     let bottomNavContents = '';
     NAV.forEach(menu => {
         bottomNavContents += `<li><a href="#"><i class="fas fa-${menu.icon}" title="${menu.name}" value="${menu.seq}"></i></a></li>`
     })
     bottomNavUl.insertAdjacentHTML('afterbegin', bottomNavContents);
-    rootEl.querySelector('.bottomNav').insertAdjacentElement('afterbegin', bottomNavUl);
+    wrapperEl.insertAdjacentElement('afterbegin', bottomNavUl);
+}
+
+bottomNav.setRect = (wrapperEl) => {
+    const bottomRectBtn = document.createElement('button');
+    bottomRectBtn.innerText = '+';
+    bottomRectBtn.className = 'bottomNav-rect_btn'
+
+    wrapperEl.insertAdjacentElement('afterbegin', bottomRectBtn);
 }
 
 export default bottomNav;

@@ -89,3 +89,23 @@ header h4 {
     align-items: center;
     font-size: 25px;
 }
+
+.bottomNav-rect_btn { 
+    width: 64px;
+    height: 64px;
+    font-size: 46px;
+    position: absolute;
+    flex-grow: 0;
+    object-fit: contain;
+    border-radius: 40px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background-image: linear-gradient(to top, #ffac5f, #ff4d3c);
+    cursor: pointer;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0;
+    color: #fff;
+}
+.bottomNav-rect_btn:hover { 
+    background-image: linear-gradient(to bottom, #ffac5f, #ff4d3c);
+}
