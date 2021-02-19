@@ -43,7 +43,6 @@ bottomNav.setNav = (wrapperEl) => {
 
 bottomNav.setRect = (wrapperEl) => {
     const bottomRectBtn = document.createElement('button');
-    bottomRectBtn.innerText = '+';
     bottomRectBtn.className = 'bottomNav-rect_btn'
 
     wrapperEl.insertAdjacentElement('afterbegin', bottomRectBtn);

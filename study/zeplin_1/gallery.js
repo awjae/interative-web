@@ -14,8 +14,8 @@ const THUBNAIL_LIST = [
 ];
 
 const IMAGE_LIST = [
-    { title : '', category : 'game', path : './image/image_1.jpg', seq : '0001'},
     { title : '', category : 'game', path : './image/image_2.jpg', seq : '0002' },
+    { title : '', category : 'game', path : './image/image_1.jpg', seq : '0001'},
     { title : '', category : 'game', path : './image/image_3.jpg', seq : '0003' },
     { title : '', category : 'game', path : './image/image_4.jpg', seq : '0004' },
     { title : '', category : 'game', path : './image/image_5.jpg', seq : '0005' },
@@ -67,22 +67,25 @@ gallery.setImages = (rootEl) => {
             const ratio = img.width/img.height;
             let width = '';
             let height = '';
+            let gridAttr = '';
             
             if (ratio >= 1.5) {
                 //gallery.grid.addWidget({w: 6, h:3, content: contents, noMove: false, noResize: true, locked: false });
-                width = '300px';
+                width = '315px';
                 height = '120px';
-            } else if (ratio <= 0.6) {
+                gridAttr = 'grid-column: span 2;'
+            } else if (ratio <= 0.7) {
                 //gallery.grid.addWidget({w: 3, h:6, content: contents, noMove: false, noResize: true, locked: false });
                 width = '150px';
-                height = '240px';
+                height = '255px';
+                gridAttr = 'grid-row: span 2;'
             } else {
                 //gallery.grid.addWidget({w: 4, h:4, content: contents, noMove: false, noResize: true, locked: false });
-                width = '150px';
+                width = '140px';
                 height = '120px';
             }
 
-            const contents = `<img src='${IMAGE_LIST[i].path}' alt='${IMAGE_LIST[i].title}' width='${width}' height='${height}'/>`;
+            const contents = `<img src='${IMAGE_LIST[i].path}' alt='${IMAGE_LIST[i].title}' width='${width}' height='${height}' style='${gridAttr}'/>`;
             categoryEl.insertAdjacentHTML('beforeend', contents);
         }
 
@@ -95,14 +98,14 @@ gallery.setImages = (rootEl) => {
         // contents.insertAdjacentElement('afterbegin', image);
         // categoryEl.insertAdjacentElement('afterbegin', contents);
     }
-    gridGallery({
-        selector: '.images-wrapper',
-        darkMode: false,
-        layout: "square",
-        gapLength: 4,
-        rowHeight: 120,
-        columnWidth: 150
-    });
+    // gridGallery({
+    //     selector: '.images-wrapper',
+    //     darkMode: false,
+    //     layout: "square",
+    //     gapLength: 4,
+    //     rowHeight: 120,
+    //     columnWidth: 150
+    // });
 }
 
 export default gallery;
