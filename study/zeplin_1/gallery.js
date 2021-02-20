@@ -89,7 +89,21 @@ gallery.setImages = (rootEl) => {
 }
 
 gallery.setImageOnClickHandler = (element) => {
-    console.log(element)
+    const popupEl = document.querySelector('#popup');
+    popupEl.classList.add('active');
+    const img = document.createElement('img');
+    img.src = element.src;
+    img.classList.add('active');
+    popupEl.insertAdjacentElement('beforeend', img);
+    document.body.style.overflow = 'hidden';
+
+    popupEl.querySelector('i').onclick = gallery.popupClose;
+}
+
+gallery.popupClose = () => {
+    const popupEl = document.querySelector('#popup');
+    popupEl.classList.remove('active');
+    popupEl.innerHTML = '<i class="fas fa-chevron-left"></i>';
 }
 
 export default gallery;
