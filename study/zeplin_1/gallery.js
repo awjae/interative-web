@@ -54,7 +54,6 @@ gallery.setThumbnail = (rootEl) => {
 }
 
 gallery.setImages = (rootEl) => {
-
     const categoryEl = document.createElement('section');
     categoryEl.className = 'images-wrapper';
     rootEl.insertAdjacentElement('beforeend', categoryEl);
@@ -65,47 +64,32 @@ gallery.setImages = (rootEl) => {
         img.src = IMAGE_LIST[i].path;
         img.onload = () => {
             const ratio = img.width/img.height;
-            let width = '';
-            let height = '';
-            let gridAttr = '';
+            const contents = document.createElement('img');
+            contents.src = IMAGE_LIST[i].path;
+            contents.alt = IMAGE_LIST[i].title;
             
             if (ratio >= 1.5) {
-                //gallery.grid.addWidget({w: 6, h:3, content: contents, noMove: false, noResize: true, locked: false });
-                width = '315px';
-                height = '120px';
-                gridAttr = 'grid-column: span 2;'
+                contents.style.width = '315px';
+                contents.style.height = '120px';
+                contents.style.gridColumn = 'span 2';
             } else if (ratio <= 0.7) {
-                //gallery.grid.addWidget({w: 3, h:6, content: contents, noMove: false, noResize: true, locked: false });
-                width = '150px';
-                height = '255px';
-                gridAttr = 'grid-row: span 2;'
+                contents.style.width = '150px';
+                contents.style.height = '255px';
+                contents.style.gridRow = 'span 2';
             } else {
-                //gallery.grid.addWidget({w: 4, h:4, content: contents, noMove: false, noResize: true, locked: false });
-                width = '140px';
-                height = '120px';
+                contents.style.width = '140px';
+                contents.style.height = '120px';
             }
 
-            const contents = `<img src='${IMAGE_LIST[i].path}' alt='${IMAGE_LIST[i].title}' width='${width}' height='${height}' style='${gridAttr}'/>`;
-            categoryEl.insertAdjacentHTML('beforeend', contents);
+            contents.onclick = () => gallery.setImageOnClickHandler(contents);
+            
+            categoryEl.insertAdjacentElement('beforeend', contents);
         }
-
-        
-
-        // const contents = document.createElement('figure');
-        // const image = document.createElement('img');
-        // image.src = IMAGE_LIST[i].path;
-        // image.alt = IMAGE_LIST[i].title;
-        // contents.insertAdjacentElement('afterbegin', image);
-        // categoryEl.insertAdjacentElement('afterbegin', contents);
     }
-    // gridGallery({
-    //     selector: '.images-wrapper',
-    //     darkMode: false,
-    //     layout: "square",
-    //     gapLength: 4,
-    //     rowHeight: 120,
-    //     columnWidth: 150
-    // });
+}
+
+gallery.setImageOnClickHandler = (element) => {
+    console.log(element)
 }
 
 export default gallery;
