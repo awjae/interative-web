@@ -124,7 +124,7 @@ header h4 {
     top: 5.5px;
 }
 .popup {
-    position: absolute;
+    position: fixed;
     background-color: #686868;
     top: 0;
     left: 0;

@@ -14,16 +14,16 @@ const THUBNAIL_LIST = [
 ];
 
 const IMAGE_LIST = [
-    { title : '', category : 'game', path : './image/image_2.jpg', seq : '0002' },
-    { title : '', category : 'game', path : './image/image_1.jpg', seq : '0001'},
-    { title : '', category : 'game', path : './image/image_3.jpg', seq : '0003' },
-    { title : '', category : 'game', path : './image/image_4.jpg', seq : '0004' },
-    { title : '', category : 'game', path : './image/image_5.jpg', seq : '0005' },
-    { title : '', category : 'game', path : './image/image_6.jpg', seq : '0006' },
-    { title : '', category : 'game', path : './image/image_7.jpg', seq : '0007' },
-    { title : '', category : 'game', path : './image/image_8.jpg', seq : '0008' },
-    { title : '', category : 'game', path : './image/image_9.jpg', seq : '0009' },
-    { title : '', category : 'game', path : './image/image_10.jpg', seq : '0010' }
+    { title : 'image_2', category : 'game', path : './image/image_2.jpg', seq : '0002' },
+    { title : 'image_1', category : 'game', path : './image/image_1.jpg', seq : '0001'},
+    { title : 'image_3', category : 'game', path : './image/image_3.jpg', seq : '0003' },
+    { title : 'image_4', category : 'game', path : './image/image_4.jpg', seq : '0004' },
+    { title : 'image_5', category : 'game', path : './image/image_5.jpg', seq : '0005' },
+    { title : 'image_6', category : 'game', path : './image/image_6.jpg', seq : '0006' },
+    { title : 'image_7', category : 'game', path : './image/image_7.jpg', seq : '0007' },
+    { title : 'image_8', category : 'game', path : './image/image_8.jpg', seq : '0008' },
+    { title : 'image_9', category : 'game', path : './image/image_9.jpg', seq : '0009' },
+    { title : 'image_10', category : 'game', path : './image/image_10.jpg', seq : '0010' }
 ];
 
 
@@ -64,18 +64,21 @@ gallery.setImages = (rootEl) => {
         img.src = IMAGE_LIST[i].path;
         img.onload = () => {
             const ratio = img.width/img.height;
+            const contentsWrapper = document.createElement('a');
             const contents = document.createElement('img');
+            contentsWrapper.href = 'javascript:void(0)'
+            contentsWrapper.insertAdjacentElement('afterbegin', contents);
             contents.src = IMAGE_LIST[i].path;
             contents.alt = IMAGE_LIST[i].title;
             
             if (ratio >= 1.5) {
                 contents.style.width = '315px';
                 contents.style.height = '120px';
-                contents.style.gridColumn = 'span 2';
+                contentsWrapper.style.gridColumn = 'span 2';
             } else if (ratio <= 0.7) {
                 contents.style.width = '150px';
                 contents.style.height = '255px';
-                contents.style.gridRow = 'span 2';
+                contentsWrapper.style.gridRow = 'span 2';
             } else {
                 contents.style.width = '140px';
                 contents.style.height = '120px';
@@ -83,7 +86,7 @@ gallery.setImages = (rootEl) => {
 
             contents.onclick = () => gallery.setImageOnClickHandler(contents);
             
-            categoryEl.insertAdjacentElement('beforeend', contents);
+            categoryEl.insertAdjacentElement('beforeend', contentsWrapper);
         }
     }
 }
@@ -98,12 +101,15 @@ gallery.setImageOnClickHandler = (element) => {
     document.body.style.overflow = 'hidden';
 
     popupEl.querySelector('i').onclick = gallery.popupClose;
+
+    window.history.pushState({ data: 'some data' },'Some history entry title', location.pathname + '/image/' + element.title)
 }
 
 gallery.popupClose = () => {
     const popupEl = document.querySelector('#popup');
     popupEl.classList.remove('active');
     popupEl.innerHTML = '<i class="fas fa-chevron-left"></i>';
+    document.body.style.overflow = 'auto';
 }
 
 export default gallery;
