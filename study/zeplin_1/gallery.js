@@ -102,7 +102,7 @@ gallery.setImageOnClickHandler = (element) => {
 
     popupEl.querySelector('i').onclick = gallery.popupClose;
 
-    window.history.pushState({ data: 'some data' },'Some history entry title', location.pathname + '/image/' + element.title)
+    window.history.pushState({ data: 'some data' },'Some history entry title', location.pathname + '/image/' + element.alt)
 }
 
 gallery.popupClose = () => {
@@ -110,6 +110,7 @@ gallery.popupClose = () => {
     popupEl.classList.remove('active');
     popupEl.innerHTML = '<i class="fas fa-chevron-left"></i>';
     document.body.style.overflow = 'auto';
+    window.history.pushState({ data: 'some data' },'Some history entry title', '/study/zeplin_1/zeplin_1.html')
 }
 
 export default gallery;
