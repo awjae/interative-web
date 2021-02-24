@@ -163,3 +163,36 @@ header h4 {
     opacity: 1;
     transition: all 1s;
 }
+
+.bottomNav-wrapper .default {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.bottomNav-wrapper .default> i {
+    color: #fc5c4c;
+    margin-right: 15px;
+}
+.bottomNav-wrapper .default> span {
+    color: #999999;
+}
+.bottomNav-overview {
+    background-color: #fc5c4c;
+    color: #fff;
+    font-family: Europa;
+    font-size: 20px;
+    font-weight: bold;
+    width: 163px;
+    height: 41px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px 0 rgba(253, 113, 75, 0.25);
+    background-image: linear-gradient(to top, #fd814a, #fc5c4c);
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
+}

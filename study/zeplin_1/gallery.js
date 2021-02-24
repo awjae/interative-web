@@ -1,3 +1,5 @@
+import bottomNav from './bottomNav.js';
+
 const gallery = {};
 
 const THUBNAIL_LIST = [
@@ -102,7 +104,10 @@ gallery.setImageOnClickHandler = (element) => {
 
     popupEl.querySelector('i').onclick = gallery.popupClose;
 
-    window.history.pushState({ data: 'some data' },'Some history entry title', location.pathname + '/image/' + element.alt)
+    window.history.pushState({ data: 'some data' },'Some history entry title', location.pathname + '/image/' + element.alt);
+
+    //상세보기
+    bottomNav.setOverview();
 }
 
 gallery.popupClose = () => {
@@ -110,7 +115,11 @@ gallery.popupClose = () => {
     popupEl.classList.remove('active');
     popupEl.innerHTML = '<i class="fas fa-chevron-left"></i>';
     document.body.style.overflow = 'auto';
-    window.history.pushState({ data: 'some data' },'Some history entry title', '/study/zeplin_1/zeplin_1.html')
+    window.history.pushState({ data: 'some data' },'Some history entry title', '/study/zeplin_1/zeplin_1.html');
+
+    bottomNav.cleanUp();
+    bottomNav.setNav();
+    bottomNav.setRect();
 }
 
 export default gallery;

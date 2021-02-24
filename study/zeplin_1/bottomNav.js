@@ -29,9 +29,11 @@ bottomNav.init = (rootEl) => {
     bottomNavWrapper = rootEl.querySelector('.bottomNav');
     bottomNav.setNav(bottomNavWrapper);
     bottomNav.setRect(bottomNavWrapper);
+
+    bottomNav.wrapperEl = bottomNavWrapper;
 }
 
-bottomNav.setNav = (wrapperEl) => {
+bottomNav.setNav = (wrapperEl = bottomNav.wrapperEl) => {
     const bottomNavUl = document.createElement('ul');
     let bottomNavContents = '';
     NAV.forEach(menu => {
@@ -41,11 +43,25 @@ bottomNav.setNav = (wrapperEl) => {
     wrapperEl.insertAdjacentElement('afterbegin', bottomNavUl);
 }
 
-bottomNav.setRect = (wrapperEl) => {
+bottomNav.setRect = (wrapperEl = bottomNav.wrapperEl) => {
     const bottomRectBtn = document.createElement('button');
     bottomRectBtn.className = 'bottomNav-rect_btn'
 
     wrapperEl.insertAdjacentElement('afterbegin', bottomRectBtn);
+}
+
+bottomNav.cleanUp = () => {
+    bottomNav.wrapperEl.innerHTML = '';
+}
+
+bottomNav.setOverview = () => {
+    bottomNav.cleanUp();
+
+    //default message
+    if (true) {
+        bottomNav.wrapperEl.insertAdjacentHTML('afterbegin', '<p class="default"><i class="fas fa-pencil-alt"></i><span>Digital Illustration</span></p>');
+        bottomNav.wrapperEl.insertAdjacentHTML('afterbegin', '<span class="bottomNav-overview">Overview</span>');
+    }
 }
 
 export default bottomNav;
