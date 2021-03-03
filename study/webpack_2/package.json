@@ -6,7 +6,8 @@
   "scripts": {
     "build": "cross-env NODE_ENV=development webpack --mode development",
     "build-prod": "cross-env NODE_ENV=production webpack --mode production",
-    "dev": "webpack-dev-server --open --mode development"
+    "dev": "webpack-dev-server --open --mode development",
+    "prod": "cross-env NODE_ENV=production webpack-dev-server --open --mode production "
   },
   "author": "",
   "license": "ISC",
