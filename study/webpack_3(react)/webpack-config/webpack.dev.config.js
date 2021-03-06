@@ -25,12 +25,12 @@ module.exports = merge(baseConfig, {
     port: PORT,
     host: "0.0.0.0",
     disableHostCheck: true,
+    inline: false,
     headers: {
       "Access-Control-Allow-Origin": "*"
     }
   },
   optimization: {
-    namedModules: true,
     noEmitOnErrors: true
   }
 });

@@ -13,12 +13,5 @@ module.exports = env =>
       new DotEnv({
         path: path.resolve(__dirname, "./local.env")
       })
-    ],
-    proxy: {
-      "/api/vworld": {
-        target: "http://api.vworld.kr/req/search",
-        secure: false,
-        changeOrigin: true
-      } // 프록시
-    },
+    ]
   });
