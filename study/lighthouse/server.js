@@ -36,8 +36,6 @@ const launchChromeAndRunLighthouse = url => {
 
 // launchChrome('http://serene.dothome.co.kr/litho/');
 
-
-
 launchChromeAndRunLighthouse("http://serene.dothome.co.kr/litho/").then(results => {
 
   if (!fs.existsSync(getToday())) {
@@ -51,8 +49,6 @@ launchChromeAndRunLighthouse("http://serene.dothome.co.kr/litho/").then(results 
     }
   )
 });
-
-
 
 function getToday() {
   var date = new Date();
